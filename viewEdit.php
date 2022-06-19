@@ -35,7 +35,7 @@
     ?>
             <div class="col-md-5 mb-3">
                 <h3 class="text-center">Datos del Producto</h3>
-                <form method="POST" action="action.php?metodo=2" enctype="multipart/form-data">
+                <form method="POST" action="update.php?metodo=2" enctype="multipart/form-data">
                     <input type="text" name="id" value="<?php echo $dataProducto['id']; ?>" hidden>
                     <div class="mb-3">
                         <label class="form-label">Nombre</label>

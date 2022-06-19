@@ -5,7 +5,7 @@
     <div class="row justify-content-md-center">
         <div class="col-md-4 mb-3">
             <h3 class="text-center">Datos del Producto</h3>
-            <form method="POST" action="action.php" enctype="multipart/form-data">
+            <form method="POST" action="create.php" enctype="multipart/form-data">
                 <input type="text" name="metodo" value="1" hidden>
                 <div class="mb-3">
                     <label class="form-label">Nombre</label>
@@ -87,7 +87,7 @@
                                             class="btn btn-info mb-2"
                                             title="Actualizar datos del producto <?php echo $dataProducto['nombre']; ?>">
                                             <i class="bi bi-arrow-clockwise"></i> Actualizar</a>
-                                        <a href="action.php?id=<?php echo $dataProducto['id']; ?>&metodo=3&namePhoto=<?php echo $dataProducto['foto']; ?>"
+                                        <a href="delete.php?id=<?php echo $dataProducto['id']; ?>&metodo=3&namePhoto=<?php echo $dataProducto['foto']; ?>"
                                             class="btn btn-danger mb-2"
                                             title="Borrar el producto <?php echo $dataProducto['nombre']; ?>">
                                             <i class="bi bi-trash"></i> Borrar</a>
