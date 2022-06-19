@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+include('db.php');
 date_default_timezone_set("America/El_Salvador");
 setlocale(LC_ALL, 'es_ES');
 
@@ -10,7 +10,7 @@ if($metodoAction == 1){
 
     $fechaRegistro  = date('d-m-Y H:i:s A', time()); 
     $nombre       = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-        //$precio         = (int) filter_var($_POST['precio'], FILTER_SANITIZE_STRING);
+    //$precio         = (int) filter_var($_POST['precio'], FILTER_SANITIZE_STRING);
     $precio         = filter_var($_POST['precio'], FILTER_SANITIZE_STRING);
     $stock           = filter_var($_POST['stock'], FILTER_SANITIZE_STRING);
 
@@ -56,7 +56,6 @@ if (!((strpos($tipo_foto, "PNG") || strpos($tipo_foto, "jpg") && ($tamano_foto <
         )");
         $resulInsert = mysqli_query($con, $SqlInsertProducto);
         ///print_r( $SqlInsertProducto);
-
     }
     closedir($miDir);
     header("Location:index.php?a=1");
@@ -66,13 +65,12 @@ if (!((strpos($tipo_foto, "PNG") || strpos($tipo_foto, "jpg") && ($tamano_foto <
   }
 }
 
-
 //Actualizar registro del Producto
 if($metodoAction == 2){
     $idProducto      = (int) filter_var($_REQUEST['id'], FILTER_SANITIZE_NUMBER_INT);
 
     $nombre       = filter_var($_POST['nombre'], FILTER_SANITIZE_STRING);
-        //$precio         = (int) filter_var($_POST['precio'], FILTER_SANITIZE_STRING);
+    //$precio         = (int) filter_var($_POST['precio'], FILTER_SANITIZE_STRING);
     $precio         = filter_var($_POST['precio'], FILTER_SANITIZE_STRING);
     $stock           = filter_var($_POST['stock'], FILTER_SANITIZE_STRING);
 
@@ -82,7 +80,6 @@ if($metodoAction == 2){
         stock='$stock'
         WHERE id='$idProducto' ");
     $resultadoUpdate = mysqli_query($con, $UpdateProducto);
-
 
     //Verificando si existe foto del Producto para actualizar
     if (!empty($_FILES["foto"]["name"])){
@@ -114,10 +111,8 @@ if($metodoAction == 2){
     }
   }
 
-  header("Location:formEditar.php?update=1&id=$idProducto");
+  header("Location:viewEdit.php?update=1&id=$idProducto");
  }
-
-
 
 //Eliminar Producto
 if($metodoAction == 3){
@@ -134,7 +129,6 @@ if($metodoAction == 3){
     
     $msj ="Producto Borrado correctamente.";
     header("Location:index.php?deletProducto=1&mensaje=".$msj);
- 
 }
 
 ?>
